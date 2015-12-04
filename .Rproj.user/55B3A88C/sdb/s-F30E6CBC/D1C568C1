@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "all: plot_of_numeber_of_male_and_female_first_authors.png\n\nclean:\n\trm -f *.png *.csv *.pdf\n\nraw_data.csv: 1_get_data.R\n\tRscript 1_get_data.R\n\t\ndf_tall_authors.csv: raw_data.csv 2_clean_the_data.R\n\tRscript 2_clean_the_data.R\n\ncounts_of_male_and_female_authors.csv: df_tall_authors.csv raw_data.csv 3_make_tables.R\n\tRscript 3_make_tables.R\n\t\ncounts_of_male_and_female_first_authors.csv: df_tall_authors.csv raw_data.csv 3_make_tables.R\n\tRscript 3_make_tables.R\n\narxiv_papers_author_gender.csv: df_tall_authors.csv raw_data.csv 3_make_tables.R\n\tRscript 3_make_tables.R\n\t\nplot_of_number_of_male_and_female_authors.png: counts_of_male_and_female_authors.csv counts_of_male_and_female_first_authors.csv 4_make_plots.R\n\tRscript 4_make_plots.R\n\nplot_of_numeber_of_male_and_female_first_authors.png: counts_of_male_and_female_authors.csv counts_of_male_and_female_first_authors.csv 4_make_plots.R\n\tRscript 4_make_plots.R\n\trm -rf Rplot.pdf\n\n",
+    "created" : 1449269210465.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4197219534",
+    "id" : "D1C568C1",
+    "lastKnownWriteTime" : 1449272291,
+    "path" : "~/SpiderOak Hive/Class/STAT545A/hw10/Makefile",
+    "project_path" : "Makefile",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "makefile"
+}
