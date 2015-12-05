@@ -11,7 +11,7 @@ And a table:
 
 	* arxiv_papers_author_gender.csv. 
 	
-This table tells you how many male and female authors were on each paper.
+This table tells you how many male and female authors were on each paper and provides a link to bibliographic information about the paper. 
 
 ## Important info
 
