@@ -46,5 +46,5 @@ Suggested workflow:
   * You can delete various intermediates "by hand" and use `make all` to re-run necessary parts of the pipeline.
   * The two plots are the last things to be produced by the workflow. Once you see those plots in your working directory the workflow is complete.
   
-If you don't want to use a makeflie you can run the whole workflow from the r-script called homework10_rcode.R. 
+If you don't want to use a makefile you can run the whole workflow from the r-script called homework10_rcode.R. 
 
