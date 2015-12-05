@@ -21,7 +21,7 @@ You need to have the following packages installed:
 	* gender
 	* dplyr
 	* tidyr
-	* stringr`
+	* stringr
 	* readr
 	* ggplot2
 	* rvest
