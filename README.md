@@ -26,7 +26,7 @@ You need to have the following packages installed:
 	* ggplot2
 	* rvest
 
-Most of the packages you will have already install from class. The one package you will probably need to install is `aRxiv`.
+Most of the packages you will have already installed from class. The one package you will probably need to install is `aRxiv`.
 
 You can install the package with the command: `install_github("ropensci/aRxiv")`
 
@@ -34,7 +34,7 @@ You can find out more about the package at this [link](https://ropensci.org/tuto
 
 ## Running the workflow
 
-Because around 3000 articles are submitted to arxiv each week I limited the number of articles that are returned to 15. If you want to change this you need to change the variable `article_limit` in the file called `1_get_data.R`. Even with only 15 articles the workflow will take a couple of minutes to complete. I tried running the workflow with no limits on the number of articles (i.e. all of the journal articles submitted in the last week) and it took about 1 hour to run!
+Because around 3000 articles are submitted to arxiv each week I limited the number of articles that are returned to 15. If you want to change this you need to change the variable `article_limit` in the file called `1_get_data.R`. Even with only 15 articles the workflow will take a couple of minutes to complete. I tried running the workflow with no limits on the number of articles (i.e. all of the journal articles submitted in the last week) and R estimated that it would take about 1 hour to run!
 
 Suggested workflow:
 
