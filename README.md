@@ -7,7 +7,11 @@ This workflow produces two plots:
 	* plot_of_number_of_male_and_female_authors.png
 	* plot_of_numeber_of_male_and_female_first_authors.png
 
-And a table: arxiv_papers_author_gender.csv. This table tells you how many male and female authors were on each paper.
+And a table: 
+
+	* arxiv_papers_author_gender.csv. 
+	
+This table tells you how many male and female authors were on each paper.
 
 ## Important info
 
@@ -24,7 +28,7 @@ You need to have the following packages installed:
 
 Most of the packages you will have already install from class. The one package you will probably need to install is `aRxiv`.
 
-You can install the package with the command `devtools::install_github()`
+You can install the package with the command `install_github("ropensci/aRxiv")`
 
 You can find out more about the package at this [link](https://ropensci.org/tutorials/arxiv_tutorial.html)
 
