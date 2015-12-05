@@ -17,18 +17,18 @@ This table tells you how many male and female authors were on each paper.
 
 You need to have the following packages installed:
 
-	* `aRxiv`
-	* `gender`
-	* `dplyr`
-	* `tidyr`
-	* `stringr`
-	* `readr`
-	* `ggplot2`
-	* `rvest`
+	* aRxiv
+	* gender
+	* dplyr
+	* tidyr
+	* stringr`
+	* readr
+	* ggplot2
+	* rvest
 
 Most of the packages you will have already install from class. The one package you will probably need to install is `aRxiv`.
 
-You can install the package with the command `install_github("ropensci/aRxiv")`
+You can install the package with the command: `install_github("ropensci/aRxiv")`
 
 You can find out more about the package at this [link](https://ropensci.org/tutorials/arxiv_tutorial.html)
 
