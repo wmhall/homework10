@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(aRxiv)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(gender)\nlibrary(rvest)\n\ndf_tall_authors <-  read_csv(\"df_tall_authors.csv\")\ndata <- read_csv(\"raw_data.csv\")\n\n# get author gender using the gender package ------------------------------\n\ndf_author_genders <- \n\tdf_tall_authors %>% \n\tmutate(author = str_to_lower(author)) %>% \n\tfilter(grepl(\"^([a-z][^\\\\.])\", author)) %>%\n\tseparate(author, c(\"f_name\", \"l_name\"), \n\t\t\t\t\t sep = \" \", extra = \"merge\") %>% \n\tgroup_by(id, key) %>% \n\tdo(gender(.$f_name)) %>% \n\tselect(id, gender)\n\n\n# create counts for tables ------------------------------------------------\n\n#get overall counts\ncounts_of_male_and_female_authors <- \n\tdf_author_genders %>%  \n\tgroup_by(gender) %>% \n\tsummarise(n_obs_gender = n())\n\n#get first author counts\ncounts_of_male_and_female_first_authors <- \n\tdf_author_genders %>% \n\tfilter(key == \"author1\") %>% \n\tgroup_by(gender) %>% \n\tsummarise(n_obs_gender_first_author = n())\n\n# create dataframe with author genders and citation info ------------------\n\ndf_author_genders_wide <- \n\tdf_author_genders %>% \n\tgroup_by(id, gender) %>% \n\tsummarise(count = n()) %>% \n\tspread(gender, count) %>% \n\trename(female_authors = female, male_authors = male)\n\ndf_with_citaion_info <- \n\tdata %>% \n\tgroup_by(id) %>% \n\tmutate(citation_info=sapply(link_abstract, \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfunction(url) {read_html(url) %>% \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thtml_nodes(\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t'.extra-ref-cite li:nth-child(1) a:nth-child(1)') %>% \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thtml_text()}),\n\t\t\t\t citation_link = sapply(link_abstract, function (url) {\n\t\t\t\t \tread_html(url) %>%\n\t\t\t\t \t\thtml_nodes('.extra-ref-cite li:nth-child(1) a:nth-child(1)') %>% \n\t\t\t\t \t\thtml_attr(\"href\") \n\t\t\t\t } )) %>% \n\tselect(id, title, citation_info, citation_link)\n\ndf_with_gender_and_cite_info <- \n\tleft_join(df_author_genders_wide, df_with_citaion_info, by = \"id\")\n\n\n# write out data files ----------------------------------------------------\n\nwrite_csv(counts_of_male_and_female_authors, \n\t\t\t\t\t\"counts_of_male_and_female_authors.csv\")\n\nwrite_csv(counts_of_male_and_female_first_authors,\n\t\t\t\t\t\"counts_of_male_and_female_first_authors.csv\")\n\nwrite_csv(df_with_gender_and_cite_info, \n\t\t\t\t\t\"arxiv_papers_author_gender.csv\")\n\n",
+    "created" : 1449273851979.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "539164077",
+    "id" : "1B7A03A2",
+    "lastKnownWriteTime" : 1449271570,
+    "path" : "~/SpiderOak Hive/Class/STAT545A/hw10/3_make_tables.R",
+    "project_path" : "3_make_tables.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

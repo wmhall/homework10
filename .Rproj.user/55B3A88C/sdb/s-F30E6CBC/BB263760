@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(aRxiv)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\n\n\n# set limit for number of articles to return ------------------------------\n\narticle_limit <- 15\n\n\n# find out the present date and create date variable for arxiv ------------\n\ntodays_date <- Sys.Date()\nthe_date_one_week_ago <- Sys.Date() - 7\ntodays_date_clean <-  str_replace_all(todays_date, \"-\", \"\")\nthe_date_one_week_ago_clean <- \n\tstr_replace_all(the_date_one_week_ago, \"-\", \"\")\n\ndate_for_arxiv_search <- paste0('submittedDate:[',\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tthe_date_one_week_ago_clean, ' TO ', \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttodays_date_clean, ']')\n\n\n# get the arxiv data ------------------------------------------------------\n\ndata <- \n\tarxiv_search(date_for_arxiv_search, limit = article_limit)\n\n\n# write data --------------------------------------------------------------\n\nwrite_csv(data,\"raw_data.csv\")\n",
+    "created" : 1449274326940.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1982869506",
+    "id" : "BB263760",
+    "lastKnownWriteTime" : 1449270805,
+    "path" : "~/SpiderOak Hive/Class/STAT545A/hw10/1_get_data.R",
+    "project_path" : "1_get_data.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
