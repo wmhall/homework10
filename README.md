@@ -1,6 +1,6 @@
 # Homework 10
 
-This is my homework 10. It is an automated workflow that takes that uses the `rarxiv` and `gender` packages from rOpenSci to find all of the journal articles submitted to [arxiv](http://arxiv.org/) in the last week and tell you the gender breakdown of the authors of the papers (i.e. how many male and female authors). Futhermore, it uses the `rvest` package to scrap the [arxiv](http://arxiv.org/) website for the bibligographic information for each journal article. 
+This is my homework 10. It is an automated workflow that uses the `rarxiv` and `gender` packages from rOpenSci to find all of the journal articles submitted to [arxiv](http://arxiv.org/) in the last week and tell you the gender breakdown of the authors of the papers (i.e. how many male and female authors). Futhermore, it uses the `rvest` package to scrape the [arxiv](http://arxiv.org/) website for the bibligographic information for each journal article. 
 
 This workflow produces two plots:
 
@@ -34,9 +34,9 @@ You can find out more about the package at this [link](https://ropensci.org/tuto
 
 ## Running the workflow
 
-Because around 3000 articles are submitted to arxiv each month I limited the number of articles that are returned to 15. If you want to change this you need to change the variable `article_limit` in the file called `1_get_data.R`. Even with only 15 articles that workflow will take a couple of minutes to complete. I tried running the workflow with no limits on the number of articles (i.e. all of the journal articles submitted in the last week) and it took about 1 hour to run!
+Because around 3000 articles are submitted to arxiv each week I limited the number of articles that are returned to 15. If you want to change this you need to change the variable `article_limit` in the file called `1_get_data.R`. Even with only 15 articles the workflow will take a couple of minutes to complete. I tried running the workflow with no limits on the number of articles (i.e. all of the journal articles submitted in the last week) and it took about 1 hour to run!
 
-Suggested workflows:
+Suggested workflow:
 
   * Clone this directory. 
   * Start a fresh RStudio session, make sure this directory is the working directory.
